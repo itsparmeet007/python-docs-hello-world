@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - PsCalculator
+name: Build and deploy Python app to Azure Web App - PSCalculator
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: '3.10'
 
       # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
@@ -63,14 +63,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_05FD561DF41F4B1EB8CD2D53EA0BE514 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B0C6ABC2B5194226BCCB937171EA4489 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_53908D92BF874F3DA7441A4518B5122C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CBEA62474D7F47EF84F393B1D6B29E61 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C09DEC8656A6492EB44B8748188161E8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CEFAF41945F449378C050D7204D2518F }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'PsCalculator'
+          app-name: 'PSCalculator'
           slot-name: 'Production'
           
