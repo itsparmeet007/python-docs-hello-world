@@ -66,11 +66,12 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CBEA62474D7F47EF84F393B1D6B29E61 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C09DEC8656A6492EB44B8748188161E8 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CEFAF41945F449378C050D7204D2518F }}
-
-      - name: 'Deploy to Azure Web App'
+          
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
-        with:
-          app-name: 'PSCalculator'
-          slot-name: 'Production'
+      with:
+        app-name: 'PSCalculator'
+        slot-name: 'Production'
+        package: .
           
